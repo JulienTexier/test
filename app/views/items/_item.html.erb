@@ -1,0 +1,57 @@
+
+
+
+
+<div class="col-lg-3 col-md-6">
+
+    <div class="single-product">
+
+        <%= link_to item_path(item) do %>
+        
+        <%if item.cat_picture.attached?%>
+            <%= image_tag item.cat_picture, class:"img-fluid img-size"%>
+        <%else%>
+            <br>
+        <% end %> 
+          
+        <div class="product-details">
+                <h6><%= item.title %></h6>
+                <div class="price">
+                    <h6><%= item.price %>€</h6>
+                </div>
+
+        <% end %>  
+
+
+            <div class="prd-bottom">
+              <% if current_user %>
+                <%= link_to join_table_carts_items_path(item_id: item), method: :post, class:"social-info", remote: true do %>
+                  <span><i class="fas fa-shopping-cart"></i></span>
+                    <p class="hover-text">add to bag</p>
+                  <% end %>
+                  <%= link_to item_path(item) do %>
+                    <div class="social-info">
+                        <span class="lnr lnr-move"></span>
+                        <p class="hover-text">view more</p>
+                    </div>                  
+                <% end %>
+
+              <% else %>
+                  <%= link_to new_user_session_path, class:"social-info" do %>
+                  <span><i class="fas fa-shopping-cart"></i></span>
+                    <p class="hover-text">add to bag</p>
+                  <% end %>
+
+                  <%= link_to item_path(item) do %>
+                    <div class="social-info">
+                        <span class="lnr lnr-move"></span>
+                        <p class="hover-text">view more</p>
+                    </div>
+                  <% end %>
+
+              <% end %>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+  <section class="banner">
+    <div class="container">
+      <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+        <div class="col-first">
+          <h1>Edit user n°<%= @user.id %></h1>
+          <nav class="d-flex align-items-center">
+            <a href="<%= items_path %>">Home<span class="lnr lnr-arrow-right"></span></a>
+            <a href="<%= admin_users_path %>">List Users<span class="lnr lnr-arrow-right"></span></a>
+            <a href="<%= admin_user_path(@user) %>">User<span class="lnr lnr-arrow-right"></span></a>
+            <a href="#">Edit user</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<%= render 'form', user: @user %>
+

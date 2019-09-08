@@ -1,0 +1,20 @@
+	<section class="banner">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Product Editing Page</h1>
+					<nav class="d-flex align-items-center">
+						<a href="<%= items_path %>">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Product Details</a>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+  
+<h1>Editing Item</h1>
+
+<%= render 'form', item: @item %>
+
+<%= link_to 'Show', @item %> |
+<%= link_to 'Back', items_path %>

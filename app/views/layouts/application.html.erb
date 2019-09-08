@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+  <head>
+    <title>Marketplace</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/75bdcd3995.js"></script>
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+  </head>
+
+  <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+
+    <!-- Start Header Area -->
+  <header class="header_area">
+   
+    <%= render 'layouts/flash'%>
+    <%= render 'layouts/navbar' %>
+
+  </header>
+  <!-- End Header Area -->
+
+    <%= yield %>
+    <%= render 'layouts/footer'%>
+  </body>
+  
+
+
+</html>
+

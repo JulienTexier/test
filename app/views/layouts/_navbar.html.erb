@@ -1,0 +1,84 @@
+
+<br><br><br>
+<div class="container ">
+  <div class="main_menu">
+   <nav class="navbar navbar-expand-sm navbar-light"  id="navbar">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+            <a class="navbar-brand logo_h"><%= image_tag 'drapeau-breton.png', class: "logo" %></a>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+              aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text"><i
+                  class="fas fa-bars fa-1x"></i></span>
+            </button>
+
+              <div class="collapse navbar-collapse offset"  id="navbarSupportedContent1">
+              <ul class="nav navbar-nav ml-auto">
+
+                <li class="nav-item"><%= link_to "Home", items_path, class: "nav-link nav-item active" %></li>
+
+            <% if current_user != nil %>
+              <% if current_user.is_admin %>
+                  <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin </a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><%= link_to 'New item', new_admin_item_path, class: "nav-link" %></li>
+                      <li class="nav-item"><%= link_to 'List Users', admin_users_path, class: "nav-link" %></li>
+                    </ul>
+              <% end %>
+            <% end %>
+
+            
+                <% if !user_signed_in? %>
+                  <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Login </a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+                      <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+                    </ul>
+                <% else %>
+                  <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My session</a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item"><%= link_to "My profile",  profile_path(current_user.id), class: "nav-link" %></li>
+                      <li class="nav-item"><%= link_to "My orders",  profile_orders_path(current_user.id), class: "nav-link" %></li>
+                      <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+                    </ul>
+                  </li>
+                <% end %>
+
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                <% if current_user %>
+                  <li class="nav-item"><%= link_to raw('<i class="fas fa-shopping-cart"></i>'), cart_path(current_user.cart), class:"cart" %></li>
+                <% else %>
+                  <li class="nav-item"><%= link_to raw('<i class="fas fa-shopping-cart"></i>'), new_user_session_path, class:"cart" %></li>
+                <% end %>
+                </ul>
+              </div>      
+
+      </div>
+    </nav>
+  </div>
+</div> 
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+
+ 

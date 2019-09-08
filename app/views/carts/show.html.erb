@@ -1,0 +1,91 @@
+
+    <!-- Start Banner Area -->
+    <section class="banner">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                
+                    <h1>Shopping Cart</h1>
+                    <nav class="d-flex align-items-center">
+                    	
+                        <a href="<%= items_path %>">Home<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="#">Cart</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+        <div class="container">
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        	<%@cart.join_table_carts_items.sort_by{|item|item.created_at}.each do|cart_item|%>
+                        		<%= render 'product', item: cart_item.item, cart_item: cart_item %>
+                        	<% end %>
+                            
+                            <tr class="bottom_button">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                <td>
+                                </td>
+
+                                </td>
+                                <td>
+                                    <h5>Subtotal</h5>
+                                </td>
+                                <td>
+                                    <h5 id="subtotal"><%= @cart.subtotal %>€</h5>
+                                </td>
+                            </tr>
+
+                            <tr class="out_button_area">
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                
+
+                                </td>
+                                <td colspan="3">
+                                    <div class="checkout_btn_inner d-flex align-items-center ">
+                                        <a class="gray_btn" href="<%= items_path %>">Continue Shopping</a>
+                                        <%= link_to "Proceed to checkout", new_profile_order_path(current_user), method: :get, class:"primary-btn" %>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Cart Area =================-->
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> 

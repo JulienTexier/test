@@ -1,0 +1,145 @@
+  <!-- start banner Area -->
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+<script>
+  $(document).ready(function() {
+    $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+      var page = $(this).attr('href'); // Page cible
+      var speed = 750; // Durée de l'animation (en ms)
+      $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+      return false;
+    });
+  });
+</script>
+
+<p id="confirm-add-to-cart" class="alert alert-success collapse"></p>
+<style>
+	#confirm-add-to-cart {
+		position: fixed;
+  top: 100px;
+  right: 5%;
+ width: 90%;
+ 
+ text-align: center;
+ font-size: 1.5em;
+
+  z-index: 10000;
+	}
+</style>
+
+
+<section class="banner-area">
+  <div class="container">
+    <br><br><br><br><br>
+    <div class="row fullscreen align-items-center justify-content-start">
+      <div class="col-lg-12">
+        <div class="active-banner-slider owl-carousel">
+
+          <br><br>  <br><br><br><br>
+          <!-- single-slide -->
+          <div class="row single-slide align-items-center d-flex">
+            <div class="col-lg-5 col-md-6">
+              <div class="banner-content">
+                <div class="h1home">Cat new <br>Collection!</div>
+                <div class="add-bag d-flex align-items-center">
+                  <a class="add-btn js-scrollTo" id="myScrollspy" href="#cat_list" ><i class="fas fa-arrow-down"></i></a>
+                  <span class="text-banner text-uppercase"> CLICK to discover our pictures</span>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="row single-slide">
+              <div class="col-lg-5">
+                <div class="banner-content">
+                  
+                  <br><br><br><br><br><br>
+                  <div class="add-bag d-flex align-items-center">
+                    
+                    <span class="add-text text-uppercase"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <div class="banner-img">
+                  <br><br><br><br><br><br><br><br>
+                </div>
+              </div>
+            </div> 
+
+        </div>
+
+      </div>
+    </div>
+  </div>        
+</section>
+
+
+  <!-- start features Area -->
+  <section class="features-area section_gap">
+    <div class="container">
+      <div class="row features-inner">
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="fas fa-hand-holding-heart">
+              <img src="" alt="">
+            </div>
+            <h6>Free hug</h6>
+            <p>Free hug for any order</p>
+          </div>
+        </div>
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="fas fa-undo">
+              <img src="" alt="">
+            </div>
+            <h6>Return Policy</h6>
+            <p>Free hug for any order</p>
+          </div>
+        </div>
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="fas fa-phone-alt">
+              <img src="" alt="">
+            </div>
+            <h6>24/7 Support</h6>
+            <p>Free hug for any order</p>
+          </div>
+        </div>
+        <!-- single features -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="single-features">
+            <div class="fas fa-coins ">
+              <img src="" alt="">
+            </div>
+            <h6>Secure Payment</h6>
+            <p>Free hug for any order</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end features Area -->
+
+<div id="cat_list">
+<%= render 'items_list' %>
+</div> 
+
+
+
+  
+
+
+
+
+

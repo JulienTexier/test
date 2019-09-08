@@ -1,0 +1,3 @@
+$("#quantity-item-" + <%= @joint_table_carts_item.item_id %>).val(<%= @joint_table_carts_item.quantity %>);
+$("#total-price-item-" + <%= @joint_table_carts_item.item_id %>).text("<%= @joint_table_carts_item.total_price %>€");
+$("#subtotal").text("<%= @joint_table_carts_item.cart.subtotal %>€");
